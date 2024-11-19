@@ -1,0 +1,18 @@
+$primary: #0B1A33;
+$danger: #b22729;
+$customized-pink: #ED9389;
+$customized-white:#f5f5f5;
+$customized-beige:#C8B094;
+
+
+$theme-colors: (
+  "primary": $primary,
+  "danger": $danger,
+  "pink": $customized-pink,
+  "white": $customized-white,
+  "beige": $customized-beige
+);
+
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
