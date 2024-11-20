@@ -1,0 +1,63 @@
+body {
+    margin: 0; /* Quita el margen por defecto */
+    padding: 0; /* Quita el relleno por defecto */
+    background-image: url('img/54a76bbff789f570cb911a1947c1b5ed.jpg'); /* Ruta de tu imagen */
+    background-size:cover; /* Ajusta la imagen para que cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 100vh; /* Asegura que el fondo ocupe toda la altura del viewport */
+    width: 100%; /* Asegura que ocupe todo el ancho del viewport */
+}
+
+nav {
+    height: 10%;
+    opacity: 0.89;
+}
+
+.cont-1{
+    border-radius: 10px;
+    height: 75%;
+    opacity: 0.89;
+    
+    
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.cont-titulo-1{
+    background-color: #0B1A33;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 80%;
+    height: 10%;
+}
+
+.input-cont{
+    width: 90%;
+}
+
+.label-class{
+    padding:0;
+    margin:0;
+}
+
+.input-class{
+    height: 50px;
+}
+
+.regist-btn{
+    margin-top: 10%;
+    width: 50%;
+    border-radius: 10px;
+}
