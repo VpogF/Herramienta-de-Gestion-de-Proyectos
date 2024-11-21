@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HerramientaGP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
@@ -11,50 +11,27 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-primary">
-        <div class="container-fluid d-flex justify-content-around">
-            <a class="navbar-brand" href="#">
-                <i class="bi bi-house fs-3 text-white"></i>
-            </a>
-            <a class="navbar-brand" href="#">
-                <img src="./img/logo_3-blanco.jpg" alt="" width="50" height="50" class="rounded-circle"
-                    class="d-inline-block align-text-top">
-            </a>
-            <a class="navbar-brand" href="#">
-                <i class="bi bi-person fs-3 text-white"></i>
-            </a>
+    <div class="landing-container">
+        <div class="landing-logo-container">
+            <img class="img-logo-landing" src="./img/logo_1_landind-removebg-preview.png" alt="">
+            <h1 class="text-danger text-logo-landing">OrganiZen</h1>
         </div>
-    </nav>
-
-    <div class="container bg-beige pt-3 pb-3 mt-5 d-flex justify-content-center cont-1 col col-sm-3 col col-sx-1">
-
-        <form action="">
-            <div class="cont-titulo-1">
-                <h3 class="card-title text-pink">Registro</h3>
-            </div>
-            <div class="input-cont">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label text-danger label-class">Nombre Usuario</label>
-                    <input type="email" class="form-control input-class" id="exampleFormControlInput1">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label text-danger label-class">Email</label>
-                    <input type="email" class="form-control input-class" id="exampleFormControlInput1 ">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label text-danger label-class">Constraseña</label>
-                    <input type="email" class="form-control input-class" id="exampleFormControlInput1">
-                </div>
-            </div>
-            <button type="button" class="btn btn-pink text-danger regist-btn">Crear Cuenta</button>
-        </form>
-
+        <div class="landing-text-container">
+            <h5 class=" text-primary landing-text">
+                En un mundo lleno de distracciones, Organizen es tu espacio para encontrar calma y claridad. Nuestra herramienta te ayuda a organizar tus tareas, gestionar tu tiempo y
+                registrar tus avances con serenidad. <br>
+    
+                Ya seas estudiante, profesional o alguien que busca equilibrio, Organizen te invita a crear un flujo de
+                trabajo armonioso y eficiente. <br>
+    
+                <p class="text-danger text-landing-final">Conecta con tu propósito. Domina tu progreso. Vive con intención.</p>
+            </h5>
+        </div>
+        <div class="regist-btn-container">
+            <button type="button" class="btn btn-pink text-danger regist-btn"><a class="link-landing-is" href="./inicioSesion.html">Inicia sesión para comenzar</a></button>
+        </div>
     </div>
-
-
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
 </body>
-
-
 
 </html>
