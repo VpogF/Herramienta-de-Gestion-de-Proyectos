@@ -9,6 +9,63 @@ body {
     width: 100%; /* Asegura que ocupe todo el ancho del viewport */
 }
 
+
+.landing-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height: 100%;
+}
+
+.landing-logo-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:flex-end;
+    height: 30%;
+    padding-bottom: 5%;
+}
+
+.img-logo-landing{
+    height: 60%;
+    width: 60%;
+    
+}
+
+.text-logo-landing{
+    font-family: serif;
+}
+
+.landing-text-container{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: center;
+
+}
+
+.landing-text {
+    text-align: center;
+    
+}
+
+.text-landing-final{
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.regist-btn-container{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+.link-landing-is{
+    color: #b22729;
+    text-decoration: none;
+}
+
 nav {
     height: 10%;
     opacity: 0.89;
@@ -60,4 +117,8 @@ form{
     margin-top: 10%;
     width: 50%;
     border-radius: 10px;
+}
+
+.text-registro {
+    margin-top: 10%;
 }
