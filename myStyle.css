@@ -122,3 +122,61 @@ form{
 .text-registro {
     margin-top: 10%;
 }
+
+
+.proyectos-container{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.proyectos-titulo-container {
+    opacity: 0.89;
+    height: 10%;
+    width: 80%;
+    margin-bottom: 3%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.proyectos-listado-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    opacity: 0.89;
+    height: 70%;
+    width: 80%;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.listado-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 95%;
+    margin-bottom: 1%;
+}
+
+.añadir-tarea{
+    display: flex;
+    background-color: #b22729;
+    width:5%;
+}
+
+.aniadir-boton{
+    width: 100% ;
+    height: 8%;
+    border-radius: 8px;
+    border: none;
+}
+
+.item-form{
+    width: 33%;
+}
