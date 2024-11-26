@@ -178,7 +178,9 @@ nav {
 }
 
 .listado-container{
-
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .card-item{
@@ -188,6 +190,7 @@ nav {
     height: 20%;
     align-items: center;
     justify-content: space-around;
+    margin: 2%;
 }
 
 .card-icon {
@@ -205,5 +208,10 @@ nav {
     width: 100%;
 }
 
+.usuario {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
 
 
