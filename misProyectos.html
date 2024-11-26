@@ -32,15 +32,54 @@
         </div>
         <div class="bg-beige proyectos-listado-container">
             <div class="listado-container">
-                
+                <div class="card card-item">
+                    <div class="card-icon">
+                        <h3>Pr</h3>
+                    </div>
+                    <div>
+                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
+                        <form action=""></form>
+                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
+                        </form>
+                    </div>
+
+                </div>
             </div>
             <div class="aniadir-tarea">
-                <button class="bg-beige aniadir-boton"><i class="bi bi-plus-square"></i></button>
+                <button type="button" class="bg-beige aniadir-boton"><i class="bi bi-plus-square"></i>
+                </button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
 
-
+    <script src="/jsBootstrap.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
