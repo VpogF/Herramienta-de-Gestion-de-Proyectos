@@ -79,7 +79,7 @@ nav {
     
 }
 
-form{
+.login-regitro-form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -177,6 +177,33 @@ form{
     border: none;
 }
 
-.item-form{
-    width: 33%;
+.listado-container{
+
 }
+
+.card-item{
+    display: flex;
+    flex-direction: row;
+    width: 23%;
+    height: 20%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-icon {
+    display: flex;
+    height: 80%;
+    width: 25%;
+    background-color: #C8B094;
+    border-radius: 10px;
+    margin: 2%;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-item-boton{
+    width: 100%;
+}
+
+
+
