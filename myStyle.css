@@ -69,6 +69,8 @@ body {
 nav {
     height: 10%;
     opacity: 0.89;
+    position: relative;
+    z-index: 1;
 }
 
 .cont-1{
@@ -215,3 +217,8 @@ nav {
 }
 
 
+.dropDownMenu {
+    position: absolute;
+    margin-top: -100px;
+    z-index: 2;
+}

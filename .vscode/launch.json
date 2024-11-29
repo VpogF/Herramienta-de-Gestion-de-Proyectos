@@ -8,7 +8,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:8080/proyecto-inter-modular/index.php",
+            "url": "http://localhost:8080/proyecto-inter-modular/index.html",
             "webRoot": "${workspaceFolder}"
         },   
         {
