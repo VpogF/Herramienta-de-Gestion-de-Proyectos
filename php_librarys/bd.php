@@ -71,4 +71,18 @@ function login($nom_user){
     return $user;
 }
 
+
+function insertProyecto ($nom_proyecto) {
+
+    $conexion = openBd();
+
+    $sentenciaText = "insert into proyecto (nom_proyecto) values (:nom_proyecto)";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->bindParam(':nom_proyecto', $nom_proyecto);
+
+    $sentencia->execute();
+
+    $conexion = closeBd();
+}
+
 ?>

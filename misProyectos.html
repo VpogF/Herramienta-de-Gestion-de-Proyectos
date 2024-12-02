@@ -169,16 +169,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="./php_controllers/userController.php" method="POST">
                         <div>
                             <input type="hidden" id="id" name="id" value="1">
 
                             <!-- Campo para el nombre -->
                             <label for="exampleFormControlInput1" class="form-label text-danger label-class">Nombre:</label>
-                            <input type="text" class="form-control input-class" id="nombre" name="nombre" required>
+                            <input type="text" class="form-control input-class" id="nom_proyecto" name="nom_proyecto" required>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary text-primary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-pink text-danger">Confirmar</button>
+                                <button type="submit" name ='crear-proyecto' class="btn btn-pink text-danger">Confirmar</button>
                             </div>
                         </div>
                         
