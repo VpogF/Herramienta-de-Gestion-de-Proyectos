@@ -45,7 +45,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
             <h3 class="text-primary ps-4">Mis Proyectos</h3>
         </div>
         <div class="bg-beige proyectos-listado-container">
-            <div class="listado-container">
+            <div id="listado-proyectos" class="listado-container">
                 <div class="card card-item">
                     <div class="card-icon">
                         <h3>Pr</h3>
