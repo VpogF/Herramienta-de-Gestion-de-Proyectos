@@ -35,6 +35,15 @@
             exit();
 
         }
-        }
+    }
+
+    if (isset($_POST['crear-proyecto']))
+    {
+        insertProyecto($_POST['nom_proyecto']);
+
+        header('Location: ../misProyectos.html');
+        exit();
+    }
+
 
 ?>
