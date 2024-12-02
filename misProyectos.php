@@ -1,3 +1,9 @@
+<?php
+session_start();
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,13 +26,13 @@
                 <img src="./img/logo_3-blanco.jpg" alt="" width="50" height="50" class="rounded-circle"
                     class="d-inline-block align-text-top">
             </a>
-            <div class="dropdown usuario">
-                <p class="text-white">Nombre Usuario</p>
+            <div id="usuario" class="dropdown usuario" data-username="<?php echo htmlspecialchars($username); ?>">
+                <p id="parrafo" class="text-white"></p>
                 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-person fs-3 text-white"></i>
                 </button>
                 <ul class="dropdown-menu dropDownMenu">
-                  <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                  <li><a class="dropdown-item" href="./logout.php">Cerrar Sesión</a></li>
                 </ul>
             </div>
             
@@ -188,7 +194,10 @@
         </div>
     </div>
 
+
+    
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 
