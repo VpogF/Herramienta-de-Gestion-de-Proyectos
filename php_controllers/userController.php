@@ -25,7 +25,7 @@
             $_SESSION['username'] = $user['nom_user'];
             echo "Inicio de sesión exitoso. Bienvenido, " . htmlspecialchars($user['username']) . "!";
 
-            header('Location: ../misProyectos.html');
+            header('Location: ../misProyectos.php');
             exit();
 
         } else {
@@ -41,7 +41,7 @@
     {
         insertProyecto($_POST['nom_proyecto']);
 
-        header('Location: ../misProyectos.html');
+        header('Location: ../misProyectos.php');
         exit();
     }
 
