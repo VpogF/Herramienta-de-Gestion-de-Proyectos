@@ -106,21 +106,26 @@ function insertProyecto ($nom_proyecto, $id_user) {
 
 
 
-function deleteProyecto($id_proyecto) {
+// function deleteProyecto($id_proyecto) {
     
-    $conexion = openBd();
+//     $conexion = openBd();
+
+//     //delete de la tabla proyecto
+
+//     $sentenciaProyecto = "delete from proyecto where id_proyecto = :id_proyecto";
+//     $sentencia = $conexion->prepare($sentenciaProyecto);
+//     $sentencia->bindParam(':id_proyecto', $id_proyecto);
+//     $sentencia->execute();
+
+//     //delete de la tabla tener
+
+//     $sentenciaTener = "delete from proyecto where id_proyecto = :id_proyecto";
+//     $sentencia = $conexion->prepare($sentenciaTener);
+//     $sentencia->bindParam(':id_proyecto', $id_proyecto);
+//     $sentencia->execute();
 
     
-    $sentenciaText = "delete from proyecto where id_proyecto = :id_proyecto";
-    $sentencia = $conexion->prepare($sentenciaText);
-
-    $sentencia->bindParam(':id_proyecto', $id_proyecto);
-
-    
-    $sentencia->execute();
-
-    
-    $conexion = closeBd();
-}
+//     $conexion = closeBd();
+// }
 
 ?>

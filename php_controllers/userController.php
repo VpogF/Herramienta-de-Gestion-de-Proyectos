@@ -45,5 +45,12 @@
         exit();
     }
 
+    // if (isset($_POST['delete-proyecto'])){
+    //     deleteProyecto($_POST['id_proyecto']);
+
+    //     header('Location: ../misProyectos.php');
+    //     exit();
+    // }
+
 
 ?>
