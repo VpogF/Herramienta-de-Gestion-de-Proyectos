@@ -51,7 +51,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
                         <h3>Pr</h3>
                     </div>
                     <div>
-                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
+                        <h5 class="text-primary card-title">Proyecto PuebaProyecto PuebaProyecto PuebaProyecto Pueba</h5>
                         <form action=""></form>
                         <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
                         </form>
