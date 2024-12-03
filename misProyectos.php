@@ -1,6 +1,8 @@
 <?php
 session_start();
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
+
+// $id_proyecto = isset($_SESSION['id_proyecto']) ? $_SESSION['id_proyecto'] : 'null';
 ?>
 
 
@@ -59,8 +61,9 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
                             </form>
 
                         </div>
-                        <form class="close-btn" action="">
-                            <button type="submit" class="close-btn">
+                        <form class="close-btn" action="./php_controllers/userController.php" method="POST">
+                            <input type="hidden" name="id_proyecto" value= <?php echo ($id_proyecto); ?>>
+                            <button type="submit" class="close-btn" name ="delete-proyecto">
                                 <i class="bi bi-x"></i>
                             </button>
                         </form>
