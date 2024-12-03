@@ -39,7 +39,7 @@
 
     if (isset($_POST['crear-proyecto']))
     {
-        insertProyecto($_POST['nom_proyecto']);
+        insertProyecto($_POST['nom_proyecto'], $_SESSION['user_id']);
 
         header('Location: ../misProyectos.php');
         exit();

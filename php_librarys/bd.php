@@ -72,7 +72,7 @@ function login($nom_user){
 }
 
 
-function insertProyecto ($nom_proyecto) {
+function insertProyecto ($nom_proyecto, $id_user) {
 
     $conexion = openBd();
 
@@ -82,6 +82,44 @@ function insertProyecto ($nom_proyecto) {
 
     $sentencia->execute();
 
+    // select 
+
+    $sentenciaTextId = "select max(id_proyecto) from proyecto";
+    $sentencia = $conexion->prepare($sentenciaTextId);
+    $sentencia->execute();
+
+    $resultado = $sentencia->fetch();
+
+
+    //insert tener
+
+    $sentenciaText = "insert into tener values (:id_user, :id_proyecto, 1)";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->bindParam(':id_user', $id_user);
+    $sentencia->bindParam(':id_proyecto', $resultado[0]);
+
+    $sentencia->execute();
+
+
+    $conexion = closeBd();
+}
+
+
+
+function deleteProyecto($id_proyecto) {
+    
+    $conexion = openBd();
+
+    
+    $sentenciaText = "delete from proyecto where id_proyecto = :id_proyecto";
+    $sentencia = $conexion->prepare($sentenciaText);
+
+    $sentencia->bindParam(':id_proyecto', $id_proyecto);
+
+    
+    $sentencia->execute();
+
+    
     $conexion = closeBd();
 }
 
