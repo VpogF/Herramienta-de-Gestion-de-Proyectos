@@ -28,14 +28,15 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
             </a>
             <div id="usuario" class="dropdown usuario" data-username="<?php echo htmlspecialchars($username); ?>">
                 <p id="parrafo" class="text-white"></p>
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     <i class="bi bi-person fs-3 text-white"></i>
                 </button>
                 <ul class="dropdown-menu dropDownMenu">
-                  <li><a class="dropdown-item" href="./logout.php">Cerrar Sesión</a></li>
+                    <li><a class="dropdown-item" href="./logout.php">Cerrar Sesión</a></li>
                 </ul>
             </div>
-            
+
 
         </div>
     </nav>
@@ -50,109 +51,20 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
                     <div class="card-icon">
                         <h3>Pr</h3>
                     </div>
-                    <div>
-                        <h5 class="text-primary card-title">Proyecto PuebaProyecto PuebaProyecto PuebaProyecto Pueba</h5>
-                        <form action=""></form>
-                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
+                    <div class="card-text-ingresar">
+                        <div class="card-text">
+                            <h5 class="text-primary card-title">Proyecto Pueba</h5>
+                            <form action=""></form>
+                            <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
+                            </form>
+
+                        </div>
+                        <form class="close-btn" action="">
+                            <button type="submit" class="close-btn">
+                                <i class="bi bi-x"></i>
+                            </button>
                         </form>
                     </div>
-
-                </div>
-                <div class="card card-item">
-                    <div class="card-icon">
-                        <h3>Pr</h3>
-                    </div>
-                    <div>
-                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
-                        <form action=""></form>
-                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="card card-item">
-                    <div class="card-icon">
-                        <h3>Pr</h3>
-                    </div>
-                    <div>
-                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
-                        <form action=""></form>
-                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="card card-item">
-                    <div class="card-icon">
-                        <h3>Pr</h3>
-                    </div>
-                    <div>
-                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
-                        <form action=""></form>
-                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="card card-item">
-                    <div class="card-icon">
-                        <h3>Pr</h3>
-                    </div>
-                    <div>
-                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
-                        <form action=""></form>
-                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="card card-item">
-                    <div class="card-icon">
-                        <h3>Pr</h3>
-                    </div>
-                    <div>
-                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
-                        <form action=""></form>
-                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="card card-item">
-                    <div class="card-icon">
-                        <h3>Pr</h3>
-                    </div>
-                    <div>
-                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
-                        <form action=""></form>
-                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="card card-item">
-                    <div class="card-icon">
-                        <h3>Pr</h3>
-                    </div>
-                    <div>
-                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
-                        <form action=""></form>
-                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="card card-item">
-                    <div class="card-icon">
-                        <h3>Pr</h3>
-                    </div>
-                    <div>
-                        <h5 class="text-primary card-title">Proyecto Pueba</h5>
-                        <form action=""></form>
-                        <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
-                        </form>
-                    </div>
-
                 </div>
             </div>
             <div class="aniadir-tarea">
@@ -180,14 +92,18 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
                             <input type="hidden" id="id" name="id" value="1">
 
                             <!-- Campo para el nombre -->
-                            <label for="exampleFormControlInput1" class="form-label text-danger label-class">Nombre:</label>
-                            <input type="text" class="form-control input-class" id="nom_proyecto" name="nom_proyecto" required>
+                            <label for="exampleFormControlInput1"
+                                class="form-label text-danger label-class">Nombre:</label>
+                            <input type="text" class="form-control input-class" id="nom_proyecto" name="nom_proyecto"
+                                required>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary text-primary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" name ='crear-proyecto' class="btn btn-pink text-danger">Confirmar</button>
+                                <button type="button" class="btn btn-secondary text-primary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" name='crear-proyecto'
+                                    class="btn btn-pink text-danger">Confirmar</button>
                             </div>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>
@@ -195,7 +111,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
     </div>
 
 
-    
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="./script.js"></script>
 </body>
