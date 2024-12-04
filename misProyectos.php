@@ -49,7 +49,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
         </div>
         <div class="bg-beige proyectos-listado-container">
             <div id="listado-proyectos" class="listado-container">
-                <div class="card card-item">
+                <!-- <div class="card card-item">
                     <div class="card-icon">
                         <h3>Pr</h3>
                     </div>
@@ -68,7 +68,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
                             </button>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="aniadir-tarea">
                 <!-- Button trigger modal -->
