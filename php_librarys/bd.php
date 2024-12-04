@@ -6,23 +6,23 @@ function openBd()
     $username = "root";
     $password = "mysql";
 
-   
+
     $conexion = new PDO("mysql:host=$servername;dbname=organizen", $username, $password);
     // set the PDO error mode to exception
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $conexion-> exec("set names utf8");
+    $conexion->exec("set names utf8");
 
     return $conexion;
 
 }
 
-function closeBd () 
+function closeBd()
 {
     return null;
 }
 
 
-function select ()
+function select()
 {
     $conexion = openBd();
 
@@ -39,7 +39,7 @@ function select ()
     return $resultado;
 }
 
-function insertUser ($nom_user, $email_user ,$pass_user) 
+function insertUser($nom_user, $email_user, $pass_user)
 {
     $conexion = openBd();
 
@@ -56,15 +56,16 @@ function insertUser ($nom_user, $email_user ,$pass_user)
     $conexion = closeBd();
 }
 
-function login($nom_user){
+function login($nom_user)
+{
 
     $conexion = openBd();
 
-        $sentenciaText = "select * from usuario WHERE nom_user = :nom_user";
-        $sentencia = $conexion->prepare($sentenciaText);
-        $sentencia->bindParam(':nom_user', $nom_user, PDO::PARAM_STR);
-        $sentencia->execute();
-        $user = $sentencia->fetch(PDO::FETCH_ASSOC);
+    $sentenciaText = "select * from usuario WHERE nom_user = :nom_user";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->bindParam(':nom_user', $nom_user, PDO::PARAM_STR);
+    $sentencia->execute();
+    $user = $sentencia->fetch(PDO::FETCH_ASSOC);
 
     $conexion = closeBd();
 
@@ -72,60 +73,99 @@ function login($nom_user){
 }
 
 
-function insertProyecto ($nom_proyecto, $id_user) {
+function insertProyecto($nom_proyecto, $id_user)
+{
+    try {
+        $conexion = openBd();
+        $conexion->beginTransaction();
 
-    $conexion = openBd();
+        $sentenciaText = "insert into proyecto (nom_proyecto) values (:nom_proyecto)";
+        $sentencia = $conexion->prepare($sentenciaText);
+        $sentencia->bindParam(':nom_proyecto', $nom_proyecto);
 
-    $sentenciaText = "insert into proyecto (nom_proyecto) values (:nom_proyecto)";
-    $sentencia = $conexion->prepare($sentenciaText);
-    $sentencia->bindParam(':nom_proyecto', $nom_proyecto);
+        $sentencia->execute();
 
-    $sentencia->execute();
+        // select del ultimo id
 
-    // select 
+        $last_id = $conexion->lastInsertId();
 
-    $sentenciaTextId = "select max(id_proyecto) from proyecto";
-    $sentencia = $conexion->prepare($sentenciaTextId);
-    $sentencia->execute();
+        //insert tener
 
-    $resultado = $sentencia->fetch();
+        $sentenciaText = "insert into tener values (:id_user, :id_proyecto, 1)";
+        $sentencia = $conexion->prepare($sentenciaText);
+        $sentencia->bindParam(':id_user', $id_user);
+        $sentencia->bindParam(':id_proyecto', $last_id);
 
+        $sentencia->execute();
+        // commit the transaction
+        $conexion->commit();
+        echo "New records created successfully";
 
-    //insert tener
-
-    $sentenciaText = "insert into tener values (:id_user, :id_proyecto, 1)";
-    $sentencia = $conexion->prepare($sentenciaText);
-    $sentencia->bindParam(':id_user', $id_user);
-    $sentencia->bindParam(':id_proyecto', $resultado[0]);
-
-    $sentencia->execute();
-
+    } catch (PDOException $e) {
+        // roll back the transaction if something failed
+        $conexion->rollback();
+        echo "Error: " . $e->getMessage();
+    }
 
     $conexion = closeBd();
 }
 
 
+function obtenerProyectos($id_user)
+{
 
-// function deleteProyecto($id_proyecto) {
-    
-//     $conexion = openBd();
+    $conexion = openBd();
 
-//     //delete de la tabla proyecto
+    $sentenciaText = "SELECT 
+            p.id_proyecto, 
+            p.nom_proyecto
+        FROM 
+            tener t
+        JOIN 
+            proyecto p ON t.id_proyecto = p.id_proyecto
+        WHERE 
+            t.id_user = :id_user";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->bindParam(':id_user', $id_user);
+    $sentencia->execute();
+    $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-//     $sentenciaProyecto = "delete from proyecto where id_proyecto = :id_proyecto";
-//     $sentencia = $conexion->prepare($sentenciaProyecto);
-//     $sentencia->bindParam(':id_proyecto', $id_proyecto);
-//     $sentencia->execute();
+    $conexion = closeBd();
 
-//     //delete de la tabla tener
+    return $resultado;
 
-//     $sentenciaTener = "delete from proyecto where id_proyecto = :id_proyecto";
-//     $sentencia = $conexion->prepare($sentenciaTener);
-//     $sentencia->bindParam(':id_proyecto', $id_proyecto);
-//     $sentencia->execute();
+}
 
-    
-//     $conexion = closeBd();
-// }
+function deleteProyecto($id_proyecto)
+{
+    try {
+        $conexion = openBd();
+
+        $conexion->beginTransaction();
+        //delete de la tabla tener
+
+        $sentenciaTener = "delete from tener where id_proyecto = :id_proyecto";
+        $sentencia = $conexion->prepare($sentenciaTener);
+        $sentencia->bindParam(':id_proyecto', $id_proyecto);
+        $sentencia->execute();
+
+        //delete de la tabla proyecto
+        $sentenciaProyecto = "delete from proyecto where id_proyecto = :id_proyecto";
+        $sentencia = $conexion->prepare($sentenciaProyecto);
+        $sentencia->bindParam(':id_proyecto', $id_proyecto);
+        $sentencia->execute();
+
+        // commit the transaction
+        $conexion->commit();
+        echo "New records created successfully";
+
+    } catch (PDOException $e) {
+        // roll back the transaction if something failed
+        $conexion->rollback();
+        echo "Error: " . $e->getMessage();
+    }
+
+    $conexion = closeBd();
+}
 
 ?>
