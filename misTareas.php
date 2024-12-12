@@ -2,7 +2,7 @@
 session_start();
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 
-// $id_proyecto = isset($_SESSION['id_proyecto']) ? $_SESSION['id_proyecto'] : 'null';
+$id_proyecto = isset($_SESSION['id_proyecto']) ? $_SESSION['id_proyecto'] : 'null';
 ?>
 
 
@@ -45,7 +45,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 
     <div class="proyectos-container">
         <div class="bg-beige proyectos-titulo-container">
-            <h3 class="text-primary ps-4">Mis Proyectos</h3>
+            <h3 class="text-primary ps-4">Proyecto X</h3>
         </div>
         <div class="bg-beige proyectos-listado-container">
             <div id="listado-proyectos" class="listado-container">
@@ -67,7 +67,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
         <div class="modal-dialog">
             <div class="modal-content bg-beige">
                 <div class="modal-header bg-primary">
-                    <h1 class="modal-title fs-5 text-pink" id="exampleModalLabel">Crea tu Proyecto</h1>
+                    <h1 class="modal-title fs-5 text-pink" id="exampleModalLabel">Crea una tarea</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -97,7 +97,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="./script.js"></script>
+    <!-- <script src="./script.js"></script> -->
 </body>
 
 
