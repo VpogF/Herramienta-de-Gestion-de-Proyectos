@@ -37,6 +37,7 @@ if (isset($_POST['login'])) {
 
 if (isset($_POST['crear-proyecto'])) {
     insertProyecto($_POST['nom_proyecto'], $_SESSION['user_id']);
+    $_SESSION['nom_proyecto'] = $_POST['crear-proyecto'];
 
     header('Location: ../misProyectos.php');
     exit();
@@ -50,6 +51,16 @@ if (isset($_POST['delete-proyecto'])) {
     header('Location: ../misProyectos.php');
     exit();
 }
+
+if (isset($_POST['acceder-proyecto'])) {
+    seleccionarTareas($_POST['id_proyecto']);
+    $_SESSION['id_proyecto'] = $_POST['acceder-proyecto'];
+
+    header('Location: ../misTareas.php');
+    exit();
+}
+
+
 
 
 ?>

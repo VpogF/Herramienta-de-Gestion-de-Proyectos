@@ -19,7 +19,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-primary">
+    <nav class="navbar navbar-light bg-primary fixed-top">
         <div class="container-fluid d-flex justify-content-around">
             <a class="navbar-brand" href="/misProyectos.html">
                 <i class="bi bi-house fs-3 text-white"></i>
@@ -45,30 +45,11 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 
     <div class="proyectos-container">
         <div class="bg-beige proyectos-titulo-container">
-            <h3 class="text-primary ps-4">Mis Proyectos</h3>
+            <h3 class="text-primary ps-4">Inicio</h3>
         </div>
         <div class="bg-beige proyectos-listado-container">
             <div id="listado-proyectos" class="listado-container">
-                <!-- <div class="card card-item">
-                    <div class="card-icon">
-                        <h3>Pr</h3>
-                    </div>
-                    <div class="card-text-ingresar">
-                        <div class="card-text">
-                            <h5 class="text-primary card-title">Proyecto Pueba</h5>
-                            <form action=""></form>
-                            <button type="submit" class="btn btn-pink text-danger card-item-boton">Ingresar</button>
-                            </form>
-
-                        </div>
-                        <form class="close-btn" action="./php_controllers/userController.php" method="POST">
-                            <input type="hidden" name="id_proyecto" value= <?php echo ($id_proyecto); ?>>
-                            <button type="submit" class="close-btn" name ="delete-proyecto">
-                                <i class="bi bi-x"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div> -->
+                
             </div>
             <div class="aniadir">
                 <!-- Button trigger modal -->

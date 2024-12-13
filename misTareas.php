@@ -3,6 +3,9 @@ session_start();
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 
 $id_proyecto = isset($_SESSION['id_proyecto']) ? $_SESSION['id_proyecto'] : 'null';
+
+$nom_proyecto = isset($_SESSION['nom_proyecto']) ? $_SESSION['nom_proyecto'] : 'Cargando';
+
 ?>
 
 
@@ -19,7 +22,7 @@ $id_proyecto = isset($_SESSION['id_proyecto']) ? $_SESSION['id_proyecto'] : 'nul
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-primary">
+    <nav class="navbar navbar-light bg-primary fixed-top">
         <div class="container-fluid d-flex justify-content-around">
             <a class="navbar-brand" href="/misProyectos.html">
                 <i class="bi bi-house fs-3 text-white"></i>
@@ -44,19 +47,51 @@ $id_proyecto = isset($_SESSION['id_proyecto']) ? $_SESSION['id_proyecto'] : 'nul
     </nav>
 
     <div class="proyectos-container">
-        <div class="bg-beige proyectos-titulo-container">
-            <h3 class="text-primary ps-4">Proyecto X</h3>
-        </div>
-        <div class="bg-beige proyectos-listado-container">
-            <div id="listado-proyectos" class="listado-container">
-                
-            </div>
+        <div class="bg-beige tareas-titulo-container">
+            <h3 class="text-primary ps-4"><?php echo $nom_proyecto ?></h3>
             <div class="aniadir">
                 <!-- Button trigger modal -->
                 <button type="button" class="bg-beige aniadir-boton" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">
                     <i class="bi bi-plus-square"></i>
                 </button>
+            </div>
+        </div>
+        <div class="tareas-listado-container">
+            <div id="listado-tareas" class="bg-beige listado-tarea-columna">
+                <div class="col-list-titulo">
+                    <p style="margin-bottom: 0rem;">TO DO</p>
+                </div>
+                <div class="col-list">
+                    <div class="tarea-prueba">
+
+                    </div>
+                    <div class="tarea-prueba">
+
+                    </div>
+                    <div class="tarea-prueba">
+
+                    </div>
+                    <div class="tarea-prueba">
+
+                    </div>
+                    <div class="tarea-prueba">
+
+                    </div>
+                    <div class="tarea-prueba">
+
+                    </div>
+                </div>
+            </div>
+            <div id="listado-tareas" class="bg-beige listado-tarea-columna">
+                <div class="col-list-titulo">
+                    <p style="margin-bottom: 0rem;">DOING</p>
+                </div>
+            </div>
+            <div id="listado-tareas" class="bg-beige listado-tarea-columna">
+                <div class="col-list-titulo">
+                    <p style="margin-bottom: 0rem;">DONE</p>
+                </div>
             </div>
         </div>
     </div>
@@ -74,16 +109,45 @@ $id_proyecto = isset($_SESSION['id_proyecto']) ? $_SESSION['id_proyecto'] : 'nul
                     <form action="./php_controllers/userController.php" method="POST">
                         <div>
                             <input type="hidden" id="id" name="id" value="1">
+                            <input type="hidden" id="id_estado" name="id_estado" value="1">
+                            <input type="hidden" id="id_proyecto" name="id_proyecto" value="<?php echo $nom_proyecto ?>">
 
                             <!-- Campo para el nombre -->
-                            <label for="exampleFormControlInput1"
-                                class="form-label text-danger label-class">Nombre:</label>
-                            <input type="text" class="form-control input-class" id="nom_proyecto" name="nom_proyecto"
+                            <label for="exampleFormControlInput1" class="form-label text-danger label-class">Nombre
+                                Tarea:</label>
+                            <input type="text" class="form-control input-class" id="nom_tarea" name="nom_tarea"
                                 required>
+                            <label for="exampleFormControlInput1"
+                                class="form-label text-danger label-class">Descripción:</label>
+                            <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+                            <label for="exampleSelect" class="form-label text-danger label-class">Encargado:</label>
+                            <select class="form-select" id="exampleSelect" name="encargado">
+                                <option value="opcion1">Usuario 1</option>
+                                <option value="opcion2">Usuario 2</option>
+                                <option value="opcion3">Usuario 3</option>
+                            </select>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="exampleFormControlInput1"
+                                        class="form-label text-danger label-class">Fecha Inicio:</label>
+                                    <input type="date" class="form-control" id="dateInput">
+                                </div>
+                                <div class="col">
+                                    <label for="exampleFormControlInput1"
+                                        class="form-label text-danger label-class">Fecha Fin:</label>
+                                    <input type="date" class="form-control" id="dateInput">
+                                </div>
+                            </div>
+                            <label for="exampleSelect" class="form-label text-danger label-class">Tipo:</label>
+                            <select class="form-select" id="exampleSelect" name="tipo">
+                                <option value="opcion1">Frontend</option>
+                                <option value="opcion2">Backend</option>
+                                <option value="opcion3">Diseño</option>
+                            </select>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary text-primary"
                                     data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" name='crear-proyecto'
+                                <button type="submit" name='crear-tarea'
                                     class="btn btn-pink text-danger">Confirmar</button>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ body {
     background-size:cover; /* Ajusta la imagen para que cubra todo el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Fija la imagen */
     height: 100vh; /* Asegura que el fondo ocupe toda la altura del viewport */
     width: 100%; /* Asegura que ocupe todo el ancho del viewport */
 }
@@ -71,6 +72,7 @@ nav {
     opacity: 0.89;
     position: relative;
     z-index: 1;
+    
 }
 
 .cont-1{
@@ -127,12 +129,13 @@ nav {
 
 
 .proyectos-container{
-    width: 100%;
+    width: auto;
     height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items:center;
+    margin-top: 100px;
 }
 
 .proyectos-titulo-container {
@@ -243,3 +246,56 @@ nav {
     margin-top: -100px;
     z-index: 2;
 }
+
+.tareas-titulo-container {
+    opacity: 0.89;
+    height: 10%;
+    width: 80%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+}
+
+.tareas-listado-container { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    opacity: 0.89;
+    width: 80%;
+    border-radius: 10px;
+
+}
+
+.listado-tarea-columna {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 32%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    padding: 0.5%;
+}
+
+.tarea-prueba {
+    width: auto;
+    height: 300px;
+    background-color: #b22729;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.col-list-titulo {
+    display: flex;
+    background-color: #0B1A33;
+    color: white;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+

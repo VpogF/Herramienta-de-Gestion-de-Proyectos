@@ -50,13 +50,26 @@ window.addEventListener('load', () => {
                 const h5Title = document.createElement('h5');
                 h5Title.className = 'text-primary card-title';
                 h5Title.textContent = proyecto.nom_proyecto; // Título del proyecto
+                h5Title.dataset.nombreProyecto = proyecto.nom_proyecto;
 
                 const formText = document.createElement('form');
+                formText.className = "ingresar-btn";
+                formText.action = './php_controllers/userController.php';
+                formText.method = 'POST';
+
+                const inputHidden1 = document.createElement('input');
+                inputHidden1.type = 'hidden';
+                inputHidden1.name = 'id_proyecto';
+                inputHidden1.value = proyecto.id_proyecto;
+
                 const buttonIngresar = document.createElement('button');
                 buttonIngresar.type = 'submit';
                 buttonIngresar.className = 'btn btn-pink text-danger card-item-boton';
+                buttonIngresar.name = 'acceder-proyecto';
+                buttonIngresar.value = proyecto.id_proyecto;
                 buttonIngresar.textContent = 'Ingresar';
 
+                formText.appendChild(inputHidden1);
                 formText.appendChild(buttonIngresar);
                 cardText.appendChild(h5Title);
                 cardText.appendChild(formText);
