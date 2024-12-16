@@ -59,8 +59,8 @@ window.addEventListener('load', () => {
 
                 const inputHidden1 = document.createElement('input');
                 inputHidden1.type = 'hidden';
-                inputHidden1.name = 'id_proyecto';
-                inputHidden1.value = proyecto.id_proyecto;
+                inputHidden1.name = 'nom_proyecto';
+                inputHidden1.value = proyecto.nom_proyecto;
 
                 const buttonIngresar = document.createElement('button');
                 buttonIngresar.type = 'submit';

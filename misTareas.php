@@ -6,6 +6,9 @@ $id_proyecto = isset($_SESSION['id_proyecto']) ? $_SESSION['id_proyecto'] : 'nul
 
 $nom_proyecto = isset($_SESSION['nom_proyecto']) ? $_SESSION['nom_proyecto'] : 'Cargando';
 
+$capitalizado = ucfirst($nom_proyecto);
+
+
 ?>
 
 
@@ -48,7 +51,7 @@ $nom_proyecto = isset($_SESSION['nom_proyecto']) ? $_SESSION['nom_proyecto'] : '
 
     <div class="proyectos-container">
         <div class="bg-beige tareas-titulo-container">
-            <h3 class="text-primary ps-4"><?php echo $nom_proyecto ?></h3>
+            <h3 class="text-primary ps-4">Proyecto: <?php echo $capitalizado ?></h3>
             <div class="aniadir">
                 <!-- Button trigger modal -->
                 <button type="button" class="bg-beige aniadir-boton" data-bs-toggle="modal"
@@ -62,25 +65,26 @@ $nom_proyecto = isset($_SESSION['nom_proyecto']) ? $_SESSION['nom_proyecto'] : '
                 <div class="col-list-titulo">
                     <p style="margin-bottom: 0rem;">TO DO</p>
                 </div>
-                <div class="col-list">
-                    <div class="tarea-prueba">
+                <div class="col-list" id="todo-tarea">
+                    <!-- <div class="tarea-prueba"> -->
+                        <!-- <article>
+                            <p id="nombre-tarea"></p>
+                        </article>
+                        <article>
+                            <p id="encargado"></p>
+                        </article>
+                        <article>
+                            <p>Fecha de inicio: <time id="fecha-inicio" datetime="2024-01-01">
+                                    </time></p>
+                            <p>Fecha de fin: <time id="fecha-fin" datetime="2024-06-30"></time>
+                            </p>
+                        </article>
+                        <article>
+                            <p id="tipo-tarea">Tipo de Tarea:</p>
+                        </article> -->
 
-                    </div>
-                    <div class="tarea-prueba">
-
-                    </div>
-                    <div class="tarea-prueba">
-
-                    </div>
-                    <div class="tarea-prueba">
-
-                    </div>
-                    <div class="tarea-prueba">
-
-                    </div>
-                    <div class="tarea-prueba">
-
-                    </div>
+                        <!-- <button>X</button>
+                    </div> -->
                 </div>
             </div>
             <div id="listado-tareas" class="bg-beige listado-tarea-columna">
@@ -89,11 +93,14 @@ $nom_proyecto = isset($_SESSION['nom_proyecto']) ? $_SESSION['nom_proyecto'] : '
                 </div>
             </div>
             <div id="listado-tareas" class="bg-beige listado-tarea-columna">
-                <div class="col-list-titulo">
-                    <p style="margin-bottom: 0rem;">DONE</p>
-                </div>
+            <div class="col-list-titulo">
+                <p style="margin-bottom: 0rem;">DONE</p>
             </div>
         </div>
+        </div>
+
+    </div>
+    </div>
     </div>
 
     <!-- Modal -->
@@ -110,7 +117,7 @@ $nom_proyecto = isset($_SESSION['nom_proyecto']) ? $_SESSION['nom_proyecto'] : '
                         <div>
                             <input type="hidden" id="id" name="id" value="1">
                             <input type="hidden" id="id_estado" name="id_estado" value="1">
-                            <input type="hidden" id="id_proyecto" name="id_proyecto" value="<?php echo $nom_proyecto ?>">
+                            <input type="hidden" id="id_proyecto" name="id_proyecto" value="<?php $id_proyecto ?>">
 
                             <!-- Campo para el nombre -->
                             <label for="exampleFormControlInput1" class="form-label text-danger label-class">Nombre
@@ -121,28 +128,24 @@ $nom_proyecto = isset($_SESSION['nom_proyecto']) ? $_SESSION['nom_proyecto'] : '
                                 class="form-label text-danger label-class">Descripción:</label>
                             <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
                             <label for="exampleSelect" class="form-label text-danger label-class">Encargado:</label>
-                            <select class="form-select" id="exampleSelect" name="encargado">
-                                <option value="opcion1">Usuario 1</option>
-                                <option value="opcion2">Usuario 2</option>
-                                <option value="opcion3">Usuario 3</option>
+                            <select class="form-select" id="usuarioSelect" name="encargado">
+
                             </select>
                             <div class="row">
                                 <div class="col">
                                     <label for="exampleFormControlInput1"
                                         class="form-label text-danger label-class">Fecha Inicio:</label>
-                                    <input type="date" class="form-control" id="dateInput">
+                                    <input type="date" class="form-control" id="dateInput" name="fecha-ini">
                                 </div>
                                 <div class="col">
                                     <label for="exampleFormControlInput1"
                                         class="form-label text-danger label-class">Fecha Fin:</label>
-                                    <input type="date" class="form-control" id="dateInput">
+                                    <input type="date" class="form-control" id="dateInput" name="fecha-fin">
                                 </div>
                             </div>
                             <label for="exampleSelect" class="form-label text-danger label-class">Tipo:</label>
-                            <select class="form-select" id="exampleSelect" name="tipo">
-                                <option value="opcion1">Frontend</option>
-                                <option value="opcion2">Backend</option>
-                                <option value="opcion3">Diseño</option>
+                            <select class="form-select" id="tipoSelect" name="tipo">
+
                             </select>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary text-primary"
@@ -161,7 +164,7 @@ $nom_proyecto = isset($_SESSION['nom_proyecto']) ? $_SESSION['nom_proyecto'] : '
 
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <!-- <script src="./script.js"></script> -->
+    <script src="./tareas.js"></script>
 </body>
 
 

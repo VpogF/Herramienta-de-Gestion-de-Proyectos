@@ -168,8 +168,9 @@ function deleteProyecto($id_proyecto)
     $conexion = closeBd();
 }
 
-function seleccionarTareas($id_proyecto){
-    
+function seleccionarTareas($id_proyecto)
+{
+
     $conexion = openBd();
 
     $sentenciaText = "select * from tarea where id_proyecto = :id_proyecto";
@@ -183,4 +184,60 @@ function seleccionarTareas($id_proyecto){
     return $resultado;
 }
 
+
+function seleccionarUsuario()
+{
+
+    $conexion = openBd();
+
+    $sentenciaText = "select * from usuario";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->execute();
+    $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+    $conexion = closeBd();
+
+    return $resultado;
+
+}
+
+function seleccionarTipoTarea()
+{
+
+    $conexion = openBd();
+
+    $sentenciaText = "select * from tipo";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->execute();
+    $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+
+    $conexion = closeBd();
+
+    return $resultado;
+
+}
+
+function insertarTarea($nom_tarea, $descripcion, $fecha_ini, $fecha_fin, $id_proyecto, $id_tipo, $id_estado, $id_user)
+{
+
+    $conexion = openBd();
+
+    $sentenciaText = "insert into tarea (nom_tarea, descripcion, fecha_ini, fecha_fin, id_proyecto, id_tipo, id_estado, id_user) 
+    values (:nom_tarea, :descripcion, :fecha_ini, :fecha_fin, :id_proyecto, :id_tipo, :id_estado, :id_user)";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->bindParam(':nom_tarea', $nom_tarea);
+    $sentencia->bindParam(':descripcion', $descripcion);
+    $sentencia->bindParam(':fecha_ini', $fecha_ini);
+    $sentencia->bindParam(':fecha_fin', $fecha_fin);
+    $sentencia->bindParam(':id_proyecto', $id_proyecto);
+    $sentencia->bindParam(':id_tipo', $id_tipo);
+    $sentencia->bindParam(':id_estado', $id_estado);
+    $sentencia->bindParam(':id_user', $id_user);
+
+    $sentencia->execute();
+    
+    $conexion = closeBd();
+
+    
+}
 ?>
