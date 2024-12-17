@@ -116,7 +116,7 @@ window.addEventListener('load', () => {
                 const inputHidden = document.createElement('input');
                 inputHidden.type = 'hidden';
                 inputHidden.name = 'id_tarea';
-                inputHidden.value = tarea.id_proyecto; 
+                inputHidden.value = tarea.id_tarea; 
 
                 const buttonClose = document.createElement('button');
                 buttonClose.type = 'submit';

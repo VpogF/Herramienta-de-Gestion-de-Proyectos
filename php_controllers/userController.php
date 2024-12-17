@@ -2,7 +2,7 @@
 session_start();
 require_once('../php_librarys/bd.php');
 
-$_SESSION['nom_proyecto'] = $_POST['nom_proyecto'];
+// $_SESSION['nom_proyecto'] = $_POST['nom_proyecto'];
 
 if (isset($_POST['insert'])) {
     insertUser($_POST['nom_user'], $_POST['email_user'], $_POST['pass_user']);
@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
 
 if (isset($_POST['crear-proyecto'])) {
     insertProyecto($_POST['nom_proyecto'], $_SESSION['user_id']);
-    
+
 
     header('Location: ../misProyectos.php');
     exit();
@@ -63,13 +63,47 @@ if (isset($_POST['acceder-proyecto'])) {
 }
 
 if (isset($_POST['crear-tarea'])) {
-    insertarTarea($_POST['nom_tarea'], $_POST['descripcion'], 
-    $_POST['fecha-ini'],$_POST['fecha-fin'], $_SESSION['id_proyecto'],
-    $_POST['tipo'],$_POST['id_estado'],$_POST['encargado']);
+    insertarTarea(
+        $_POST['nom_tarea'],
+        $_POST['descripcion'],
+        $_POST['fecha-ini'],
+        $_POST['fecha-fin'],
+        $_SESSION['id_proyecto'],
+        $_POST['tipo'],
+        $_POST['id_estado'],
+        $_POST['encargado']
+    );
 
     header('Location: ../misTareas.php');
     exit();
 }
+
+if (isset($_POST['delete-tarea'])) {
+
+    $_SESSION['id_tarea'] = $_POST['id_tarea'];
+
+    deleteTarea($_POST['id_tarea']);
+    header('Location: ../misTareas.php');
+    exit();
+}
+
+if (isset($_POST['aniadir-usuario'])) {
+    $_SESSION['id_proyecto'] = $_POST['aniadir-usuario'];
+    $_SESSION['nom_proyecto'] = $_POST['nom_proyecto'];
+    header('Location: ../misProyectos.php');
+
+    
+}
+
+if (isset($_POST['aniadir-col'])) {
+    $_SESSION['id_proyecto'] = $_POST['aniadir-usuario'];
+    $_SESSION['nom_proyecto'] = $_POST['nom_proyecto'];
+
+    agregarColaboradorTener($_POST['colaborador'], $_SESSION['id_proyecto']);
+    header('Location: ../misProyectos.php');
+    exit();
+}
+
 
 
 

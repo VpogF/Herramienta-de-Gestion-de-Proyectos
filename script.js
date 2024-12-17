@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
             return respuesta.json();
         })
         .then(function (proyectos) {
-            
+
 
             const listadoProyecto = document.querySelector('#listado-proyectos');
 
@@ -69,6 +69,10 @@ window.addEventListener('load', () => {
                 buttonIngresar.value = proyecto.id_proyecto;
                 buttonIngresar.textContent = 'Ingresar';
 
+
+
+
+
                 formText.appendChild(inputHidden1);
                 formText.appendChild(buttonIngresar);
                 cardText.appendChild(h5Title);
@@ -82,9 +86,10 @@ window.addEventListener('load', () => {
                 formClose.method = 'POST';
 
                 const inputHidden = document.createElement('input');
-                inputHidden.type = 'hidden';
+                // inputHidden.type = 'hidden';
+                inputHidden.id = proyecto.id_proyecto;
                 inputHidden.name = 'id_proyecto';
-                inputHidden.value = proyecto.id_proyecto; 
+                inputHidden.value = proyecto.id_proyecto;
 
                 const buttonClose = document.createElement('button');
                 buttonClose.type = 'submit';
@@ -94,9 +99,25 @@ window.addEventListener('load', () => {
                 const iconClose = document.createElement('i');
                 iconClose.className = 'bi bi-x';
 
+                const buttonAgrecarCol = document.createElement('button')
+                buttonAgrecarCol.type = 'submit'
+                buttonAgrecarCol.className = 'aniadir-boton-usuario'; // Asignar clases
+                buttonIngresar.name = 'aniadir-usuario';
+                buttonAgrecarCol.setAttribute('data-bs-toggle', 'modal'); // Asignar atributos personalizados
+                buttonAgrecarCol.setAttribute('data-bs-target', '#exampleModal2');
+
+                // Crear el ícono
+                const icon = document.createElement('i');
+                icon.className = 'bi bi-person-plus-fill';
+
+                buttonAgrecarCol.appendChild(icon);
+
+
+
                 buttonClose.appendChild(iconClose);
                 formClose.appendChild(inputHidden);
                 formClose.appendChild(buttonClose);
+                formClose.appendChild(buttonAgrecarCol);
                 cardTextIngresar.appendChild(formClose);
 
                 // Añadir la sección de texto-ingresar al contenedor principal
@@ -112,6 +133,29 @@ window.addEventListener('load', () => {
 })
 
 
+window.addEventListener('load', () => {
+    fetch('/proyecto-inter-modular/api/tareas/obtenerUsuario.php')
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
+        .then(function (usuarios) {
 
+
+            const listadoUsuario = document.querySelector('#usuarioSelect');
+
+            for (const usuario of usuarios) {
+
+                const option = document.createElement('option');
+                option.textContent = usuario.nom_user;
+                option.value = usuario.id_user;
+
+                listadoUsuario.appendChild(option);
+            }
+        })
+        .catch(function (error) {
+            debugger;
+            console.log('Error:', error);
+        })
+})
 
 
