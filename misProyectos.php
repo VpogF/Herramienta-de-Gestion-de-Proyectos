@@ -49,7 +49,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
         </div>
         <div class="bg-beige proyectos-listado-container">
             <div id="listado-proyectos" class="listado-container">
-                
+
             </div>
             <div class="aniadir">
                 <!-- Button trigger modal -->
@@ -61,7 +61,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal añadir tarea -->
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -84,6 +84,40 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
                                 <button type="button" class="btn btn-secondary text-primary"
                                     data-bs-dismiss="modal">Cancelar</button>
                                 <button type="submit" name='crear-proyecto'
+                                    class="btn btn-pink text-danger">Confirmar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal añadir col -->
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-beige">
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5 text-pink" id="exampleModalLabel">Añade Participantes</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="./php_controllers/userController.php" method="POST">
+                        <div>
+                            
+
+                            <!-- Campo para el nombre -->
+                            <label for="exampleSelect" class="form-label text-danger label-class">Colaborador:</label>
+                            <select class="form-select" id="usuarioSelect" name="colaborador" >
+
+                            </select>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary text-primary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" name="aniadir-col"
                                     class="btn btn-pink text-danger">Confirmar</button>
                             </div>
                         </div>

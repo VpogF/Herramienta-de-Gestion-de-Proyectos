@@ -240,4 +240,51 @@ function insertarTarea($nom_tarea, $descripcion, $fecha_ini, $fecha_fin, $id_pro
 
     
 }
+
+
+function deleteTarea($id_tarea){
+
+    try {
+        $conexion = openBd();
+
+        $conexion->beginTransaction();
+
+
+        //delete de la tabla tarea
+
+        $sentenciaTener = "delete from tarea where id_tarea = :id_tarea";
+        $sentencia = $conexion->prepare($sentenciaTener);
+        $sentencia->bindParam(':id_tarea', $id_tarea);
+        $sentencia->execute();
+
+
+        // commit the transaction
+        $conexion->commit();
+        echo "New records created successfully";
+
+    } catch (PDOException $e) {
+        // roll back the transaction if something failed
+        $conexion->rollback();
+        echo "Error: " . $e->getMessage();
+    }
+
+    $conexion = closeBd();
+
+}
+
+function agregarColaboradorTener ($id_user, $id_proyecto){
+
+    $conexion = openBd();
+
+    $sentenciaText = "insert into tener (id_user, id_proyecto, id_rol) values (:id_user, :id_proyecto, 2)";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->bindParam(':id_user', $id_user);
+    $sentencia->bindParam(':id_proyecto', $id_proyecto);
+
+    $sentencia->execute();
+        // commit the transaction
+    
+
+    $conexion = closeBd();
+}
 ?>
