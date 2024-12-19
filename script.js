@@ -69,10 +69,6 @@ window.addEventListener('load', () => {
                 buttonIngresar.value = proyecto.id_proyecto;
                 buttonIngresar.textContent = 'Ingresar';
 
-
-
-
-
                 formText.appendChild(inputHidden1);
                 formText.appendChild(buttonIngresar);
                 cardText.appendChild(h5Title);
@@ -105,6 +101,7 @@ window.addEventListener('load', () => {
                 buttonIngresar.name = 'aniadir-usuario';
                 buttonAgrecarCol.setAttribute('data-bs-toggle', 'modal'); // Asignar atributos personalizados
                 buttonAgrecarCol.setAttribute('data-bs-target', '#exampleModal2');
+                buttonAgrecarCol.setAttribute('data-id-proyecto', proyecto.id_proyecto);
 
                 // Crear el ícono
                 const icon = document.createElement('i');
@@ -117,7 +114,7 @@ window.addEventListener('load', () => {
                 buttonClose.appendChild(iconClose);
                 formClose.appendChild(inputHidden);
                 formClose.appendChild(buttonClose);
-                formClose.appendChild(buttonAgrecarCol);
+                cardTextIngresar.appendChild(buttonAgrecarCol);
                 cardTextIngresar.appendChild(formClose);
 
                 // Añadir la sección de texto-ingresar al contenedor principal
@@ -131,6 +128,26 @@ window.addEventListener('load', () => {
 
         })
 })
+
+const exampleModal = document.getElementById('exampleModal2')
+if (exampleModal) {
+  exampleModal.addEventListener('show.bs.modal', event => {
+    // Button that triggered the modal
+    const button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    const idProyecto = button.getAttribute('data-id-proyecto')
+    // If necessary, you could initiate an Ajax request here
+    // and then do the updating in a callback.
+    const inputHiddenId = document.getElementById('idProyecto')
+    inputHiddenId.value = idProyecto;
+    // Update the modal's content.
+    // const modalTitle = exampleModal.querySelector('.modal-title')
+    // const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+    // modalTitle.textContent = `New message to ${recipient}`
+    // modalBodyInput.value = recipient
+  })
+}
 
 
 window.addEventListener('load', () => {
