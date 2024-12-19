@@ -87,19 +87,17 @@ if (isset($_POST['delete-tarea'])) {
     exit();
 }
 
-if (isset($_POST['aniadir-usuario'])) {
-    $_SESSION['id_proyecto'] = $_POST['aniadir-usuario'];
-    $_SESSION['nom_proyecto'] = $_POST['nom_proyecto'];
-    header('Location: ../misProyectos.php');
+// if (isset($_POST['aniadir-usuario'])) {
+//     $_SESSION['id_proyecto'] = $_POST['aniadir-usuario'];
+//     $_SESSION['nom_proyecto'] = $_POST['nom_proyecto'];
+//     header('Location: ../misProyectos.php');
 
     
-}
+// }
 
 if (isset($_POST['aniadir-col'])) {
-    $_SESSION['id_proyecto'] = $_POST['aniadir-usuario'];
-    $_SESSION['nom_proyecto'] = $_POST['nom_proyecto'];
 
-    agregarColaboradorTener($_POST['colaborador'], $_SESSION['id_proyecto']);
+    agregarColaboradorTener($_POST['colaborador'], $_POST['idProyecto']);
     header('Location: ../misProyectos.php');
     exit();
 }

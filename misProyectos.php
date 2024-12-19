@@ -107,7 +107,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
                 <div class="modal-body">
                     <form action="./php_controllers/userController.php" method="POST">
                         <div>
-                            
+                            <input type="hidden" id="idProyecto" name="idProyecto">
 
                             <!-- Campo para el nombre -->
                             <label for="exampleSelect" class="form-label text-danger label-class">Colaborador:</label>
