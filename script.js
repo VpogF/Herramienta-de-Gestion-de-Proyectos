@@ -98,7 +98,7 @@ window.addEventListener('load', () => {
                 const buttonAgrecarCol = document.createElement('button')
                 buttonAgrecarCol.type = 'submit'
                 buttonAgrecarCol.className = 'aniadir-boton-usuario'; // Asignar clases
-                buttonIngresar.name = 'aniadir-usuario';
+                buttonAgrecarCol.name = 'aniadir-usuario';
                 buttonAgrecarCol.setAttribute('data-bs-toggle', 'modal'); // Asignar atributos personalizados
                 buttonAgrecarCol.setAttribute('data-bs-target', '#exampleModal2');
                 buttonAgrecarCol.setAttribute('data-id-proyecto', proyecto.id_proyecto);
