@@ -78,6 +78,7 @@ window.addEventListener('load', () => {
             for (const tarea of tareas) {
 
                 const tareaCard = document.createElement("div");
+                
                 tareaCard.className = 'tarea-prueba';
 
                 const tareaText = document.createElement("div");

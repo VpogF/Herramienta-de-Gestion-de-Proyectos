@@ -67,7 +67,7 @@ $capitalizado = ucfirst($nom_proyecto);
                 </div>
                 <div class="col-list" id="todo-tarea">
                     <!-- <div class="tarea-prueba"> -->
-                        <!-- <article>
+                    <!-- <article>
                             <p id="nombre-tarea"></p>
                         </article>
                         <article>
@@ -83,7 +83,7 @@ $capitalizado = ucfirst($nom_proyecto);
                             <p id="tipo-tarea">Tipo de Tarea:</p>
                         </article> -->
 
-                        <!-- <button>X</button>
+                    <!-- <button>X</button>
                     </div> -->
                 </div>
             </div>
@@ -91,12 +91,18 @@ $capitalizado = ucfirst($nom_proyecto);
                 <div class="col-list-titulo">
                     <p style="margin-bottom: 0rem;">DOING</p>
                 </div>
+                <div class="col-list" id="doing-tarea">
+
+                </div>
             </div>
             <div id="listado-tareas" class="bg-beige listado-tarea-columna">
-            <div class="col-list-titulo">
-                <p style="margin-bottom: 0rem;">DONE</p>
+                <div class="col-list-titulo">
+                    <p style="margin-bottom: 0rem;">DONE</p>
+                </div>
+                <div class="col-list" id="done-tarea">
+
+                </div>
             </div>
-        </div>
         </div>
 
     </div>
