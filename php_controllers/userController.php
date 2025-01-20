@@ -57,6 +57,7 @@ if (isset($_POST['delete-proyecto'])) {
 if (isset($_POST['acceder-proyecto'])) {
     seleccionarTareas($_POST['id_proyecto']);
     $_SESSION['id_proyecto'] = $_POST['acceder-proyecto'];
+    
 
     header('Location: ../misTareas.php');
     exit();
