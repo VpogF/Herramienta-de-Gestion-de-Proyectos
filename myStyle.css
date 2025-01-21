@@ -311,4 +311,10 @@ nav {
     border-radius: 10px;
 }
 
+.col-list {
+    min-height: 400px;
+}
 
+.drag-over {
+    border: dashed 3px red;
+}
