@@ -78,8 +78,10 @@ window.addEventListener('load', () => {
             for (const tarea of tareas) {
 
                 const tareaCard = document.createElement("div");
-                
+
                 tareaCard.className = 'tarea-prueba';
+                tareaCard.setAttribute("id", id.value);
+                tareaCard.draggable = true;
 
                 const tareaText = document.createElement("div");
                 tareaText.className = 'texto-card-tarea'
@@ -107,7 +109,7 @@ window.addEventListener('load', () => {
                 tareaText.appendChild(nombreTarea);
                 tareaText.appendChild(encargado);
                 tareaText.appendChild(fechas);
-                tareaText.appendChild(tipoTarea);           
+                tareaText.appendChild(tipoTarea);
 
                 const formClose = document.createElement('form');
                 formClose.className = 'close-btn';
@@ -117,7 +119,7 @@ window.addEventListener('load', () => {
                 const inputHidden = document.createElement('input');
                 inputHidden.type = 'hidden';
                 inputHidden.name = 'id_tarea';
-                inputHidden.value = tarea.id_tarea; 
+                inputHidden.value = tarea.id_tarea;
 
                 const buttonClose = document.createElement('button');
                 buttonClose.type = 'submit';
@@ -135,11 +137,94 @@ window.addEventListener('load', () => {
                 tareaCard.appendChild(formClose);
 
                 listadoTareas.appendChild(tareaCard);
-            
+
+                tareaCard.addEventListener('dragstart', function(e) {
+                    e.dataTransfer.setData('text/plain', tareaCard.id); // No se puede recuperar
+                    tareaCard.classList.add("arrastrando");
+                    console.log('arrastrando ' + tareaCard.id);
+
+                    // setTimeout(() => {
+                    //     e.target.classList.add('hide');
+                    // }, 0);
+
+                });
+               
             }
+
+            const boxes = document.querySelectorAll('.col-list');
+
+            boxes.forEach(box => {
+                console.log(box.id);
+                //box.addEventListener('dragenter', dragEnter);
+                box.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    console.log('over')
+                    // e.target.classList.add('drag-over');
+                });
+                //box.addEventListener('dragleave', dragLeave);
+                box.addEventListener('drop', (e) => {
+                    // e.target.classList.remove('drag-over');
+                    console.log('drop');
+                    // get the draggable element  (NO RECUPERA LA ID)
+                    const id = e.dataTransfer.getData('text/plain');
+                 
+                   
+                   const draggable = document.querySelector(".arrastrando");
+                  // const draggable = document.getElementById(id);
+                    
+                    // add it to the drop target
+                    let columna = e.currentTarget.closest(".col-list");
+                   // alert("ID COLUMNA" + columna.id);
+                   columna.appendChild(draggable);
+                    draggable.classList.remove("arrastrando");
+                    // display the draggable element
+                    // draggable.classList.remove('hide');
+            });
+
+                
+
+            });
+
+
+
+
         })
-    })
+})
     .catch(function (error) {
         debugger;
         console.log('Error:', error);
     })
+
+    function dragEnter(e) {
+        e.preventDefault();
+        console.log('enter')
+        e.target.classList.add('drag-over');
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+        console.log('over')
+        e.target.classList.add('drag-over');
+    }
+
+    function dragLeave(e) {
+        console.log('leave')
+        e.target.classList.remove('drag-over');
+    }
+
+    function drop(e) {
+        e.target.classList.remove('drag-over');
+        console.log('drop')
+        // get the draggable element  (NO RECUPERA LA ID)
+        const id = e.dataTransfer.getData('text/plain');
+       
+        const draggable = document.querySelector(".arrastrando");
+        
+        // add it to the drop target
+        let columna = e.target.closest(".col-list");
+        alert("ID COLUMNA" + columna.id);
+       // draggable.closest(".col-list").appendChild(draggable);
+
+        // display the draggable element
+        draggable.classList.remove('hide');
+    }
