@@ -143,6 +143,7 @@ nav {
     height: 10%;
     width: 80%;
     margin-bottom: 3%;
+    margin-top: 2%;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -203,6 +204,7 @@ nav {
     align-items: center;
     justify-content: space-around;
     margin: 2%;
+    padding: 1%;
 }
 
 .card-icon {
@@ -211,7 +213,6 @@ nav {
     width: 20%;
     background-color: #C8B094;
     border-radius: 10px;
-    margin: 3%;
     align-items: center;
     justify-content: center;
 }
@@ -231,9 +232,8 @@ nav {
 
 .close-btn{
     border: none;
-    margin-left: 10%;
-    background-color:#fdfdfd;
-    width: 20%;
+    margin-left: 5px;
+    width: 30px;
     border-radius: 10px;
 }
 
@@ -287,6 +287,11 @@ nav {
     padding: 0.5%;
 }
 
+.img-card-tarea{
+    width: 50px;
+    background-image: url(../proyecto-inter-modular/img/sakuratree.jpg);
+}
+
 .tarea-prueba {
     width: auto;
     height: fit-content;
@@ -294,11 +299,12 @@ nav {
     border-radius: 10px;
     margin-top: 1%;
     margin-bottom: 1%;
-    border:2px solid #b22729;
+    border:5px solid #ED9389;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding:2%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .col-list-titulo {
@@ -318,3 +324,4 @@ nav {
 .drag-over {
     border: dashed 3px red;
 }
+
