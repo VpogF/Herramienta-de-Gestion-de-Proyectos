@@ -83,27 +83,30 @@ window.addEventListener('load', () => {
                 tareaCard.setAttribute("id", id.value);
                 tareaCard.draggable = true;
 
+                const tareaImg = document.createElement("div");
+                tareaImg.className = 'img-card-tarea'
+
                 const tareaText = document.createElement("div");
                 tareaText.className = 'texto-card-tarea'
 
 
                 const nombreTarea = document.createElement("article");
-                nombreTarea.innerHTML = `<p id="nombre-tarea">Nombre de la tarea: ${tarea.nom_tarea}</p>`;
+                nombreTarea.innerHTML = `<p id="nombre-tarea"><b>Nombre de la tarea:</b> ${tarea.nom_tarea}</p>`;
 
                 const encargado = document.createElement("article");
-                encargado.innerHTML = `<p id="encargado">Encargado: ${tarea.nom_user}</p>`;
+                encargado.innerHTML = `<p id="encargado"><b>Encargado:</b> ${tarea.nom_user}</p>`;
 
                 const fechas = document.createElement("article");
                 fechas.innerHTML = `
-                <p>Fecha de inicio: 
+                <p><b>Fecha de inicio:</b> 
                     <time id="fecha-inicio" datetime="${tarea.fecha_inicio}">${tarea.fecha_inicio}</time>
                 </p>
-                <p>Fecha de fin: 
+                <p><b>Fecha de fin:</b>
                     <time id="fecha-fin" datetime="${tarea.fecha_fin}">${tarea.fecha_fin}</time>
                 </p>`;
 
                 const tipoTarea = document.createElement("article");
-                tipoTarea.innerHTML = `<p id="tipo-tarea">Tipo de Tarea: ${tarea.nom_tipo}</p>`;
+                tipoTarea.innerHTML = `<p id="tipo-tarea"><b>Tipo de Tarea:</b> ${tarea.nom_tipo}</p>`;
 
                 // Agregar los artículos al contenedor del proyecto
                 tareaText.appendChild(nombreTarea);
@@ -133,6 +136,7 @@ window.addEventListener('load', () => {
                 formClose.appendChild(inputHidden);
                 formClose.appendChild(buttonClose);
 
+                tareaCard.appendChild(tareaImg);
                 tareaCard.appendChild(tareaText);
                 tareaCard.appendChild(formClose);
 
