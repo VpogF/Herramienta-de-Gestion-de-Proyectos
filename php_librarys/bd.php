@@ -289,17 +289,5 @@ function agregarColaboradorTener ($id_user, $id_proyecto){
     $conexion = closeBd();
 }
 
-function recuperarColaboradores ($id_proyecto){
-    $conexion = openBd();
 
-    $sentenciaText = "select id_user from tener where id_proyecto = :id_proyecto";
-    $sentencia = $conexion->prepare($sentenciaText);
-    $sentencia->bindParam(':id_proyecto', $id_proyecto);
-    $sentencia->execute();
-    $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-
-    $conexion = closeBd();
-
-    return $resultado;
-}
 ?>

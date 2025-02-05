@@ -146,35 +146,33 @@ if (exampleModal) {
 
     // modalTitle.textContent = `New message to ${recipient}`
     // modalBodyInput.value = recipient
+
+    
+    
+        fetch(`/proyecto-inter-modular/api/tareas/obtenerUsuario.php?id_proyecto=${idProyecto}`)
+            .then(function (respuesta) {
+                return respuesta.json();
+            })
+            .then(function (usuarios) {
+    
+    
+                const listadoUsuario = document.querySelector('#usuarioSelect');
+    
+                for (const usuario of usuarios) {
+    
+                    const option = document.createElement('option');
+                    option.textContent = usuario.nom_user;
+                    option.value = usuario.id_user;
+    
+                    listadoUsuario.appendChild(option);
+                }
+            })
+            .catch(function (error) {
+                debugger;
+                console.log('Error:', error);
+            })
+    
   })
 }
-
-
-window.addEventListener('load', () => {
-    fetch('/proyecto-inter-modular/api/tareas/obtenerUsuario.php')
-        .then(function (respuesta) {
-            return respuesta.json();
-        })
-        .then(function (usuarios) {
-
-
-            const listadoUsuario = document.querySelector('#usuarioSelect');
-
-            for (const usuario of usuarios) {
-
-                const option = document.createElement('option');
-                option.textContent = usuario.nom_user;
-                option.value = usuario.id_user;
-
-                listadoUsuario.appendChild(option);
-            }
-        })
-        .catch(function (error) {
-            debugger;
-            console.log('Error:', error);
-        })
-})
-
-
 
 

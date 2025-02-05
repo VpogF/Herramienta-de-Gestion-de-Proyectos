@@ -41,7 +41,7 @@ window.addEventListener('load', () => {
 })
 
 window.addEventListener('load', () => {
-    fetch('/proyecto-inter-modular/api/tareas/obtenerUsuario.php')
+    fetch('/proyecto-inter-modular/api/tareas/obtenerUsuarioTarea.php')
         .then(function (respuesta) {
             return respuesta.json();
         })
@@ -60,7 +60,7 @@ window.addEventListener('load', () => {
             }
         })
         .catch(function (error) {
-            debugger;
+            // debugger;
             console.log('Error:', error);
         })
 })
@@ -142,7 +142,7 @@ window.addEventListener('load', () => {
 
                 listadoTareas.appendChild(tareaCard);
 
-                tareaCard.addEventListener('dragstart', function(e) {
+                tareaCard.addEventListener('dragstart', function (e) {
                     e.dataTransfer.setData('text/plain', tareaCard.id); // No se puede recuperar
                     tareaCard.classList.add("arrastrando");
                     console.log('arrastrando ' + tareaCard.id);
@@ -152,7 +152,7 @@ window.addEventListener('load', () => {
                     // }, 0);
 
                 });
-               
+
             }
 
             const boxes = document.querySelectorAll('.col-list');
@@ -171,21 +171,21 @@ window.addEventListener('load', () => {
                     console.log('drop');
                     // get the draggable element  (NO RECUPERA LA ID)
                     const id = e.dataTransfer.getData('text/plain');
-                 
-                   
-                   const draggable = document.querySelector(".arrastrando");
-                  // const draggable = document.getElementById(id);
-                    
+
+
+                    const draggable = document.querySelector(".arrastrando");
+                    // const draggable = document.getElementById(id);
+
                     // add it to the drop target
                     let columna = e.currentTarget.closest(".col-list");
-                   // alert("ID COLUMNA" + columna.id);
-                   columna.appendChild(draggable);
+                    // alert("ID COLUMNA" + columna.id);
+                    columna.appendChild(draggable);
                     draggable.classList.remove("arrastrando");
                     // display the draggable element
                     // draggable.classList.remove('hide');
-            });
+                });
 
-                
+
 
             });
 
@@ -199,36 +199,36 @@ window.addEventListener('load', () => {
         console.log('Error:', error);
     })
 
-    function dragEnter(e) {
-        e.preventDefault();
-        console.log('enter')
-        e.target.classList.add('drag-over');
-    }
+function dragEnter(e) {
+    e.preventDefault();
+    console.log('enter')
+    e.target.classList.add('drag-over');
+}
 
-    function dragOver(e) {
-        e.preventDefault();
-        console.log('over')
-        e.target.classList.add('drag-over');
-    }
+function dragOver(e) {
+    e.preventDefault();
+    console.log('over')
+    e.target.classList.add('drag-over');
+}
 
-    function dragLeave(e) {
-        console.log('leave')
-        e.target.classList.remove('drag-over');
-    }
+function dragLeave(e) {
+    console.log('leave')
+    e.target.classList.remove('drag-over');
+}
 
-    function drop(e) {
-        e.target.classList.remove('drag-over');
-        console.log('drop')
-        // get the draggable element  (NO RECUPERA LA ID)
-        const id = e.dataTransfer.getData('text/plain');
-       
-        const draggable = document.querySelector(".arrastrando");
-        
-        // add it to the drop target
-        let columna = e.target.closest(".col-list");
-        alert("ID COLUMNA" + columna.id);
-       // draggable.closest(".col-list").appendChild(draggable);
+function drop(e) {
+    e.target.classList.remove('drag-over');
+    console.log('drop')
+    // get the draggable element  (NO RECUPERA LA ID)
+    const id = e.dataTransfer.getData('text/plain');
 
-        // display the draggable element
-        draggable.classList.remove('hide');
-    }
+    const draggable = document.querySelector(".arrastrando");
+
+    // add it to the drop target
+    let columna = e.target.closest(".col-list");
+    alert("ID COLUMNA" + columna.id);
+    // draggable.closest(".col-list").appendChild(draggable);
+
+    // display the draggable element
+    draggable.classList.remove('hide');
+}
