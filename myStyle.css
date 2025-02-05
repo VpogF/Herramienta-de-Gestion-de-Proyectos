@@ -183,7 +183,7 @@ nav {
 }
 
 .aniadir-boton-usuario {
-    width: 100% ;
+    max-width: 60%;
     height: 50%;
     border-radius: 8px;
     border: none;

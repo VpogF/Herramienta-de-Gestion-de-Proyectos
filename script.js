@@ -82,7 +82,7 @@ window.addEventListener('load', () => {
                 formClose.method = 'POST';
 
                 const inputHidden = document.createElement('input');
-                // inputHidden.type = 'hidden';
+                inputHidden.type = 'hidden';
                 inputHidden.id = proyecto.id_proyecto;
                 inputHidden.name = 'id_proyecto';
                 inputHidden.value = proyecto.id_proyecto;
