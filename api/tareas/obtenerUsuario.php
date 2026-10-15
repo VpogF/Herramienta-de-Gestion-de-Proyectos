@@ -8,7 +8,7 @@ $id_proyecto = $_GET['id_proyecto'];
 
 $conexion = openBd();
 
-$sentenciaText = "select * from usuario 
+$sentenciaText = "select id_user, nom_user from usuario
 where id_user not in (
 select id_user from tener where id_proyecto=:id_proyecto
 )";

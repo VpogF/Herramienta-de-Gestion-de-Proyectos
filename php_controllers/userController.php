@@ -5,8 +5,37 @@ require_once('../php_librarys/bd.php');
 // $_SESSION['nom_proyecto'] = $_POST['nom_proyecto'];
 
 if (isset($_POST['insert'])) {
-    insertUser($_POST['nom_user'], $_POST['email_user'], $_POST['pass_user']);
+    $nom_user = trim($_POST['nom_user'] ?? '');
+    $email_user = trim($_POST['email_user'] ?? '');
+    $pass_user = $_POST['pass_user'] ?? '';
+    $pass_user2 = $_POST['pass_user2'] ?? '';
 
+    $error = null;
+    if ($nom_user === '' || $email_user === '' || $pass_user === '') {
+        $error = "Rellena todos los campos.";
+    } elseif (!filter_var($email_user, FILTER_VALIDATE_EMAIL)) {
+        $error = "El email no es válido.";
+    } elseif (strlen($pass_user) < 6) {
+        $error = "La contraseña debe tener al menos 6 caracteres.";
+    } elseif ($pass_user !== $pass_user2) {
+        $error = "Las contraseñas no coinciden.";
+    } elseif (login($nom_user)) {
+        // nom_user es UNIQUE: sin esta comprobación el insert lanza una excepción
+        $error = "Ese nombre de usuario ya existe. Prueba con otro.";
+    }
+
+    if ($error) {
+        $_SESSION['error_registro'] = $error;
+        $_SESSION['registro_nom_user'] = $nom_user;
+        $_SESSION['registro_email_user'] = $email_user;
+        header('Location: ../registro.php');
+        exit();
+    }
+
+    insertUser($nom_user, $email_user, $pass_user);
+
+    $_SESSION['exito'] = "Cuenta creada. Ya puedes iniciar sesión.";
+    $_SESSION['login_nom_user'] = $nom_user;
     header('Location: ../inicioSesion.php');
     exit();
 }
@@ -31,6 +60,7 @@ if (isset($_POST['login'])) {
     } else {
         // Usuario o contraseña incorrectos
         $_SESSION['error'] = "Usuario o contraseña incorrectos.";
+        $_SESSION['login_nom_user'] = $nom_user;
         header('Location: ../inicioSesion.php');
         exit();
 
@@ -64,15 +94,20 @@ if (isset($_POST['acceder-proyecto'])) {
 }
 
 if (isset($_POST['crear-tarea'])) {
+    // Campos opcionales vacíos -> NULL (MySQL no acepta '' en columnas DATE/INT)
+    $fecha_ini = ($_POST['fecha-ini'] ?? '') !== '' ? $_POST['fecha-ini'] : null;
+    $fecha_fin = ($_POST['fecha-fin'] ?? '') !== '' ? $_POST['fecha-fin'] : null;
+    $encargado = ($_POST['encargado'] ?? '') !== '' ? $_POST['encargado'] : null;
+
     insertarTarea(
-        $_POST['nom_tarea'],
-        $_POST['descripcion'],
-        $_POST['fecha-ini'],
-        $_POST['fecha-fin'],
+        trim($_POST['nom_tarea']),
+        trim($_POST['descripcion'] ?? ''),
+        $fecha_ini,
+        $fecha_fin,
         $_SESSION['id_proyecto'],
         $_POST['tipo'],
         $_POST['id_estado'],
-        $_POST['encargado']
+        $encargado
     );
 
     header('Location: ../misTareas.php');

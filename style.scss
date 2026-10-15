@@ -2,7 +2,7 @@ $primary: #0B1A33;
 $danger: #b22729;
 $customized-pink: #ED9389;
 $customized-white:#e3e3e3;
-$customized-beige:#C8B094;
+$customized-offwhite: #F4EFE9; // blanco roto (antes beige #C8B094)
 
 
 $theme-colors: (
@@ -10,7 +10,7 @@ $theme-colors: (
   "danger": $danger,
   "pink": $customized-pink,
   "whiteC": $customized-white,
-  "beige": $customized-beige
+  "offwhite": $customized-offwhite
 );
 
 
