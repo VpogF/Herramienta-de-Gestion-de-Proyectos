@@ -142,6 +142,13 @@ function deleteProyecto($id_proyecto)
         $conexion = openBd();
 
         $conexion->beginTransaction();
+        //delete de la tabla tarea (las FK no tienen ON DELETE CASCADE)
+
+        $sentenciaTarea = "delete from tarea where id_proyecto = :id_proyecto";
+        $sentencia = $conexion->prepare($sentenciaTarea);
+        $sentencia->bindParam(':id_proyecto', $id_proyecto);
+        $sentencia->execute();
+
         //delete de la tabla tener
 
         $sentenciaTener = "delete from tener where id_proyecto = :id_proyecto";

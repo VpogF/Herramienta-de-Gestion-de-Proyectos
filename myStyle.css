@@ -1,3 +1,6 @@
+/* Fondo de paneles, tarjetas de acceso, ventanas y pestañas: color "offwhite" (blanco roto #F4EFE9)
+   de la paleta en style.scss, que Bootstrap expone como --bs-offwhite-rgb. Se cambia allí. */
+
 body {
     margin: 0; /* Quita el margen por defecto */
     padding: 0; /* Quita el relleno por defecto */
@@ -325,3 +328,1033 @@ nav {
     border: dashed 3px red;
 }
 
+
+
+/* ===== Mis proyectos (prefijo mp-) ===== */
+
+/* Espacio para la barra fija con padding, no margin: un margin-top aquí "colapsa" hacia el body,
+   lo desplaza 110px y genera scroll aunque el contenido quepa en pantalla */
+.mp-page {
+    width: min(1200px, 100% - 32px);
+    margin: 0 auto;
+    padding: 90px 0 24px; /* la barra mide ~66px */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Fondo semitransparente en lugar de opacity, para que el texto no pierda contraste */
+.mp-panel {
+    background-color: rgba(var(--bs-offwhite-rgb), 0.92);
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
+    padding: 20px 24px;
+    box-shadow: 0 8px 24px rgba(11, 26, 51, 0.18);
+}
+
+.mp-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.mp-title {
+    color: #0B1A33;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.mp-subtitle {
+    color: #0B1A33;
+    margin: 2px 0 0;
+}
+
+.mp-btn-nuevo {
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 600;
+}
+
+.mp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.mp-grid-vacio {
+    display: block;
+}
+
+.mp-card {
+    position: relative;
+    min-height: 170px;
+    background-color: #fff;
+    border: 1px solid rgba(11, 26, 51, 0.08);
+    border-top: 5px solid var(--mp-color, #0B1A33);
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(11, 26, 51, 0.12);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.mp-card:hover,
+.mp-card:focus-within {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(11, 26, 51, 0.22);
+}
+
+.mp-card-form {
+    height: 100%;
+}
+
+.mp-card-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    background: none;
+    text-align: left;
+    color: #0B1A33;
+    cursor: pointer;
+}
+
+.mp-card-main:focus-visible {
+    outline: 3px solid #ED9389;
+    outline-offset: 2px;
+}
+
+.mp-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    background-color: var(--mp-color, #0B1A33);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.mp-card-name {
+    max-width: calc(100% - 30px);
+    font-size: 1.1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mp-card-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.875rem;
+    color: #4a5568;
+    margin-top: auto;
+}
+
+.mp-progress {
+    display: block;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background-color: #ece4da;
+    overflow: hidden;
+}
+
+.mp-progress-bar {
+    display: block;
+    height: 100%;
+    background-color: var(--mp-color, #0B1A33);
+    border-radius: 3px;
+}
+
+/* Menú ⋯ encima de la tarjeta, en la esquina superior derecha */
+.mp-card-menu {
+    position: absolute;
+    top: 14px;
+    right: 8px;
+}
+
+.mp-icon-btn {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    background: none;
+    color: #0B1A33;
+    font-size: 1.1rem;
+}
+
+.mp-icon-btn:hover,
+.mp-icon-btn:focus-visible,
+.mp-icon-btn[aria-expanded="true"] {
+    background-color: #f1ebe3;
+}
+
+/* Tarjetas de carga */
+.mp-skeleton {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.55) 25%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0.55) 75%);
+    background-size: 200% 100%;
+    animation: mp-brillo 1.2s infinite linear;
+    box-shadow: none;
+}
+
+.mp-skeleton:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes mp-brillo {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+}
+
+.mp-empty {
+    text-align: center;
+    color: #0B1A33;
+    padding: 40px 16px;
+}
+
+.mp-empty-icon {
+    font-size: 3rem;
+}
+
+.mp-empty-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 12px 0 6px;
+}
+
+.mp-empty-text {
+    max-width: 420px;
+    margin: 0 auto 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mp-card,
+    .mp-skeleton {
+        transition: none;
+        animation: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .mp-panel {
+        padding: 16px;
+    }
+
+    .mp-btn-nuevo {
+        width: 100%;
+    }
+}
+
+
+/* ===== Inicio de sesión / registro (prefijo auth-) ===== */
+
+.auth-nav {
+    height: auto;
+    min-height: 70px;
+}
+
+/* El body reparte la altura: barra arriba y .auth-page ocupa exactamente el resto,
+   mida lo que mida la barra (antes se restaba una altura fija y sobraban 6px) */
+body.auth-body {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Centra la tarjeta en el espacio que queda bajo la barra */
+.auth-page {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background-color: rgba(var(--bs-offwhite-rgb), 0.94);
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(11, 26, 51, 0.25);
+    overflow: hidden;
+}
+
+.auth-header {
+    background-color: #0B1A33;
+    padding: 24px 28px;
+    text-align: center;
+}
+
+.auth-title {
+    color: #ED9389;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.auth-subtitle {
+    color: #e3e3e3;
+    margin: 4px 0 0;
+    font-size: 0.95rem;
+}
+
+.auth-form {
+    padding: 28px 28px 8px;
+}
+
+.auth-label {
+    color: #0B1A33;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.auth-input {
+    height: 48px;
+}
+
+.auth-form .input-group-text {
+    background-color: #fff;
+    color: #0B1A33;
+    border-right: 0;
+}
+
+.auth-form .input-group .auth-input:not(:last-child) {
+    border-right: 0;
+}
+
+.auth-toggle-pass {
+    background-color: #fff;
+    color: #0B1A33;
+    border: 1px solid var(--bs-border-color);
+    border-left: 0;
+}
+
+.auth-toggle-pass:hover,
+.auth-toggle-pass:focus-visible {
+    background-color: #f1ebe3;
+    color: #0B1A33;
+}
+
+.auth-submit {
+    height: 48px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.auth-footer {
+    text-align: center;
+    color: #0B1A33;
+    padding: 12px 28px 24px;
+    margin: 0;
+}
+
+.auth-footer a {
+    color: #0B1A33;
+    font-weight: 700;
+}
+
+.auth-footer a:hover {
+    color: #b22729;
+}
+
+@media (max-width: 400px) {
+    .auth-header {
+        padding: 20px;
+    }
+
+    .auth-form {
+        padding: 22px 20px 6px;
+    }
+
+    .auth-footer {
+        padding: 12px 20px 20px;
+    }
+}
+
+.auth-help {
+    font-size: 0.85rem;
+    color: #3d4a5c;
+    margin-top: 4px;
+}
+
+/* Pantallas bajas (portátiles de 768px, móviles pequeños): formulario compacto para que quepa sin scroll */
+@media (max-height: 760px) {
+    .auth-page {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .auth-header {
+        padding: 14px 24px;
+    }
+
+    .auth-title {
+        font-size: 1.4rem;
+    }
+
+    .auth-subtitle {
+        display: none;
+    }
+
+    .auth-form {
+        padding-top: 18px;
+    }
+
+    .auth-form .mb-3,
+    .auth-form .mb-4 {
+        margin-bottom: 12px !important;
+    }
+
+    .auth-label {
+        margin-bottom: 4px;
+    }
+
+    .auth-input,
+    .auth-submit {
+        height: 42px;
+    }
+
+    .auth-submit {
+        margin-top: 4px;
+    }
+
+    .auth-help {
+        margin-top: 2px;
+    }
+
+    .auth-footer {
+        padding-top: 10px;
+        padding-bottom: 14px;
+    }
+}
+
+/* ===== Modales con el mismo estilo que las tarjetas auth- ===== */
+
+.auth-modal-dialog {
+    max-width: 440px;
+    padding: 0 8px;
+}
+
+.auth-modal {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: rgb(var(--bs-offwhite-rgb));
+    box-shadow: 0 16px 40px rgba(11, 26, 51, 0.35);
+}
+
+.auth-modal .auth-header {
+    position: relative;
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.auth-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+.auth-modal .auth-form {
+    padding-bottom: 24px;
+}
+
+.auth-modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-modal-actions .btn {
+    flex: 1;
+}
+
+.auth-modal-actions .btn-outline-primary {
+    background-color: #fff;
+}
+
+.auth-modal-actions .btn-outline-primary:hover {
+    background-color: #0B1A33;
+}
+
+/* En los modales el subtítulo da contexto (p. ej. a qué proyecto se añade alguien) y hay sitio de sobra:
+   se muestra aunque la regla de pantallas bajas lo oculte en login/registro */
+.auth-modal .auth-subtitle {
+    display: block;
+}
+
+
+/* ===== Mis tareas (prefijo mt-, reutiliza mp-panel / mp-header / mp-title) ===== */
+
+/* La página ocupa exactamente la pantalla: el tablero rellena el alto que queda
+   y cada columna hace scroll por dentro. Con pantallas muy bajas (< 600px) vuelve a desplazarse la página */
+.mt-page {
+    width: min(1400px, 100% - 32px);
+    height: max(100vh, 600px);
+    height: max(100dvh, 600px);
+}
+
+.mt-header-text {
+    min-width: 0;
+}
+
+.mt-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #0B1A33;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 2px;
+}
+
+.mt-back:hover {
+    color: #b22729;
+    text-decoration: underline;
+}
+
+.mt-board {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr);
+    gap: 16px;
+    align-items: stretch;
+}
+
+@media (min-width: 768px) {
+    .mt-board {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Columna: cabecera fija arriba y la lista ocupa el resto con su propio scroll */
+.mt-col {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 16px 12px 12px 16px;
+    transition: box-shadow 0.15s ease;
+}
+
+.mt-col-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #0B1A33;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.mt-count {
+    margin-left: auto;
+    min-width: 28px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background-color: rgba(11, 26, 51, 0.12);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.mt-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.mt-dot-1 { background-color: #ED9389; }
+.mt-dot-2 { background-color: #d9962b; }
+.mt-dot-3 { background-color: #5B7553; }
+
+.mt-col-list {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    /* hueco para que sombras y foco de las tarjetas no se corten, y separación con la barra de scroll */
+    padding: 4px 4px 4px 0;
+    margin-right: -4px;
+    border-radius: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(11, 26, 51, 0.35) transparent;
+    transition: background-color 0.15s ease;
+}
+
+/* Las tarjetas no se encogen cuando la columna se llena: aparece el scroll */
+.mt-col-list > .mt-card {
+    flex-shrink: 0;
+}
+
+/* Columna vacía: el texto sale del atributo data-vacio y ocupa toda la columna, centrado */
+.mt-col-list:empty::before {
+    content: attr(data-vacio);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    padding: 16px;
+    border: 2px dashed rgba(11, 26, 51, 0.25);
+    border-radius: 10px;
+    color: #3d4a5c;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Columna sobre la que se está arrastrando una tarea */
+.mt-drop-activa {
+    box-shadow: 0 0 0 3px #0B1A33, 0 8px 24px rgba(11, 26, 51, 0.18);
+}
+
+.mt-drop-activa .mt-col-list {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.mt-card {
+    background-color: #fff;
+    border-radius: 10px;
+    border-left: 4px solid var(--mt-color-tipo, #0B1A33);
+    padding: 10px 12px 12px 14px;
+    box-shadow: 0 2px 6px rgba(11, 26, 51, 0.12);
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.mt-card:hover {
+    box-shadow: 0 8px 18px rgba(11, 26, 51, 0.2);
+}
+
+.mt-card.arrastrando {
+    opacity: 0.45;
+}
+
+.mt-card.mp-skeleton {
+    height: 110px;
+    border-left: none;
+    cursor: default;
+}
+
+.mt-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.mt-card-top .mp-icon-btn {
+    width: 30px;
+    height: 30px;
+    margin-right: -6px;
+}
+
+.mt-tipo {
+    padding: 2px 10px;
+    border-radius: 999px;
+    background-color: var(--mt-color-tipo, #0B1A33);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.mt-card-title {
+    color: #0B1A33;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+}
+
+/* Título y descripción con altura fija de 2 líneas (con "…" si no caben):
+   así todas las tarjetas miden lo mismo y el texto completo se ve en el detalle */
+.mt-card-open {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    width: 100%;
+    height: 2.6em;
+    line-height: 1.3;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+}
+
+.mt-card-open:focus-visible {
+    outline: 3px solid #ED9389;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Las tareas hechas se ven tachadas y más suaves */
+.mt-col[data-estado="3"] .mt-card-open {
+    color: #5f6b7a;
+    text-decoration: line-through;
+}
+
+.mt-card-desc {
+    color: #4a5568;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    height: 2.8em;
+    margin: 0 0 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+
+.mt-card-desc-vacia {
+    color: #8a94a3;
+    font-style: italic;
+}
+
+/* Pie en una sola línea: fechas fijas y el nombre del encargado se recorta si no cabe */
+.mt-card-meta {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 22px; /* alto del avatar: igual con o sin encargado/fechas */
+    justify-content: space-between;
+    gap: 12px;
+    color: #4a5568;
+    font-size: 0.8rem;
+}
+
+.mt-fecha {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.mt-card-meta .mt-encargado {
+    min-width: 0;
+}
+
+.mt-encargado-nombre {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mt-vencida {
+    color: #b22729;
+    font-weight: 700;
+}
+
+.mt-encargado {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mt-mini-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #0B1A33;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.mt-sin-asignar {
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* Aviso flotante */
+.mt-aviso {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translate(-50%, 20px);
+    max-width: calc(100% - 32px);
+    padding: 10px 18px;
+    border-radius: 10px;
+    background-color: #0B1A33;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(11, 26, 51, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 1100;
+}
+
+.mt-aviso.visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Modal de tarea algo más ancho: lleva dos columnas de campos */
+.mt-modal-tarea {
+    max-width: 540px;
+}
+
+/* Variante roja de cabecera para acciones destructivas */
+.auth-header-peligro {
+    background-color: #b22729;
+}
+
+.auth-header-peligro .auth-title {
+    color: #fff;
+}
+
+.auth-opcional {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #3d4a5c;
+}
+
+.auth-texto {
+    color: #0B1A33;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mt-card,
+    .mt-aviso {
+        transition: none;
+    }
+}
+
+/* ===== Detalle de tarea ===== */
+
+.mt-detalle-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.mt-detalle-titulo {
+    overflow-wrap: anywhere;
+}
+
+.mt-detalle-label {
+    margin: 0 0 6px;
+    color: #3d4a5c;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.mt-detalle-desc {
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #0B1A33;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.mt-detalle-vacio {
+    color: #6b7280;
+    font-style: italic;
+}
+
+.mt-detalle-datos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+    margin: 0 0 18px;
+}
+
+.mt-detalle-datos dt {
+    margin-bottom: 4px;
+    color: #3d4a5c;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.mt-detalle-datos dd {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    color: #0B1A33;
+    font-weight: 600;
+}
+
+.mt-badge-vencida {
+    padding: 1px 8px;
+    border-radius: 999px;
+    background-color: #b22729;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.mt-detalle-mover {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.mt-btn-mover {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid rgba(11, 26, 51, 0.25);
+    border-radius: 999px;
+    background-color: #fff;
+    color: #0B1A33;
+    font-weight: 600;
+}
+
+.mt-btn-mover:hover,
+.mt-btn-mover:focus-visible {
+    background-color: #f1ebe3;
+    border-color: #0B1A33;
+    color: #0B1A33;
+}
+
+/* Las acciones van fuera del cuerpo con scroll, así siempre están a la vista */
+.mt-detalle-acciones {
+    padding: 4px 28px 24px;
+}
+
+.mt-detalle-acciones .btn-outline-danger {
+    background-color: #fff;
+}
+
+.mt-detalle-acciones .btn-outline-danger:hover {
+    background-color: #b22729;
+    color: #fff;
+}
+
+@media (max-width: 400px) {
+    .mt-detalle-acciones {
+        padding: 4px 20px 20px;
+    }
+
+    .mt-detalle-datos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Pestañas de columnas: solo en móvil */
+.mt-tabs {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .mt-page {
+        gap: 12px;
+    }
+
+    .mt-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 4px;
+        padding: 4px;
+        border-radius: 12px;
+        background-color: rgba(var(--bs-offwhite-rgb), 0.92);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 8px 24px rgba(11, 26, 51, 0.18);
+    }
+
+    /* Nombre arriba y contador debajo: igual en las tres pestañas y cabe en móviles estrechos */
+    .mt-tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        min-height: 52px;
+        padding: 6px 4px;
+        border: none;
+        border-radius: 9px;
+        background: none;
+        color: #0B1A33;
+        font-size: 0.85rem;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .mt-tab-nombre {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+    }
+
+    /* En móvil no se puede arrastrar: texto de columna vacía sin "Arrastra aquí" */
+    .mt-col-list:empty::before {
+        content: attr(data-vacio-movil);
+    }
+
+    .mt-tab .mt-count {
+        margin-left: 0;
+        min-width: 22px;
+        padding: 0 7px;
+        font-size: 0.75rem;
+    }
+
+    .mt-tab[aria-selected="true"] {
+        background-color: #0B1A33;
+        color: #fff;
+    }
+
+    .mt-tab[aria-selected="true"] .mt-count {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .mt-tab:focus-visible {
+        outline: 3px solid #ED9389;
+        outline-offset: 1px;
+    }
+
+    /* Se ve solo la columna de la pestaña activa; su cabecera sobra porque ya está en la pestaña */
+    .mt-col:not(.mt-col-activa) {
+        display: none;
+    }
+
+    .mt-col-head {
+        display: none;
+    }
+}
+
+/* Móvil estrecho: botones de los modales apilados (el principal arriba) para que textos
+   como "Guardar cambios" quepan en una línea */
+@media (max-width: 420px) {
+    .auth-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    /* flex: 1 (mismo ancho en horizontal) en columna aplastaría la altura de los botones */
+    .auth-modal-actions .btn {
+        flex: none;
+    }
+}
